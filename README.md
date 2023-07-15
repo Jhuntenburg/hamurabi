@@ -3,7 +3,7 @@ an ancient (in more ways than one) computer game (text)
 
 ## General idea of the lab
 
-*Hammurabi* is a very old computer game (like about as old as Kris). Your job is to bring it into the 21st century by writing it in Java.
+*hammurabi.docs.matuszek.Hammurabi* is a very old computer game (like about as old as Kris). Your job is to bring it into the 21st century by writing it in Java.
 
 Here are the standard instructions for the game:
 
@@ -22,19 +22,19 @@ There is NO `pom.xml` file in this repo. You need to add that. Use `vscode` or `
 
 ### Details
 
-Define a single class named `Hammurabi`. Use the following skeleton (but leave out the `//` comments):
+Define a single class named `hammurabi.docs.matuszek.Hammurabi`. Use the following skeleton (but leave out the `//` comments):
 
 ```java
 package hammurabi;               // package declaration 
 import java.util.Random;         // imports go here
 import java.util.Scanner;
 
-public class Hammurabi {         // must save in a file named Hammurabi.java
+public class hammurabi.docs.matuszek.Hammurabi {         // must save in a file named hammurabi.docs.matuszek.Hammurabi.java
     Random rand = new Random();  // this is an instance variable
     Scanner scanner = new Scanner(System.in);
 
     public static void main(String\[\] args) { // required in every Java program
-        new Hammurabi().playGame();
+        new hammurabi.docs.matuszek.Hammurabi().playGame();
     }
 
     void playGame() {
@@ -58,7 +58,7 @@ Here is what you start the game with:
 
 Each year, print out a summary similar to the following:
 
-    O great Hammurabi!
+    O great hammurabi.docs.matuszek.Hammurabi!
     You are in year 1 of your ten year rule.
     In the previous year 0 people starved to death.
     In the previous year 5 people entered the kingdom.
@@ -94,7 +94,7 @@ Here's what your `playGame` method needs to do each year, for up to 10 years:
 > 
 > Ask the player how many acres to plant with grain, and returns that number. You must have enough acres, enough grain, and enough people to do the planting. Any grain left over goes into storage for next year.
 > 
-> For each question, do "sanity checking"; that is, test whether the answer is possible (you have enough grain, you have enough people to do the planting etc.), and keep asking until you get a possible value. (For example, `O Great Hammurabi, surely you jest! We have only 3415 bushels left!`)
+> For each question, do "sanity checking"; that is, test whether the answer is possible (you have enough grain, you have enough people to do the planting etc.), and keep asking until you get a possible value. (For example, `O Great hammurabi.docs.matuszek.Hammurabi, surely you jest! We have only 3415 bushels left!`)
 > 
 > Then the method needs to determine:
 > 
@@ -203,14 +203,14 @@ To get a number from the player, add this method to your program:
 
 Here is an example of how you can use this method:
 
-> `sell = getNumber("O great Hammurabi, how many acres shall you sell?");`
+> `sell = getNumber("O great hammurabi.docs.matuszek.Hammurabi, how many acres shall you sell?");`
 
 ### Structure of the solution
 
-*   Project name: `Hammurabi`
+*   Project name: `hammurabi.docs.matuszek.Hammurabi`
 *   Package name: `hammurabi`
 *   Class names and method signatures:
-    *   `class Hammurabi`
+    *   `class hammurabi.docs.matuszek.Hammurabi`
         *   `public static void main(String[] args)`
         *   Numerous other methods, as described above.
 
@@ -224,5 +224,5 @@ But realize that you'll have to structure your solution so that app classes are 
 
 ### Credits
 
-Adapted from: CIT 591 Assignment 3: Hammurabi, Fall 2010, David Matuszek (this guy is a Rock Star)
+Adapted from: CIT 591 Assignment 3: hammurabi.docs.matuszek.Hammurabi, Fall 2010, David Matuszek (this guy is a Rock Star)
 

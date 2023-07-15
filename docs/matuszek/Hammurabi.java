@@ -1,3 +1,5 @@
+package hammurabi.docs.matuszek;//package hammurabi.src.main.java;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -8,7 +10,7 @@ import java.util.Scanner;
 // I'm serious.
 // (how the hell would you ever be able to TEST this piece of code?)
 //
-public class HAMURABI {
+public class Hammurabi {
 	static int totalDeaths = 0, percentDied = 0, year = 0, population = 95, stores = 2800, immigrants = 5, deaths,
 		harvest = 3000, yeild = 3, acres = harvest / yeild, eaten = harvest - stores, landPrice, fullPeople, temp;
 	static boolean plague = false;
@@ -22,7 +24,7 @@ public class HAMURABI {
 		population += immigrants;
 		landPrice = (int) (10 * Math.random() + 17);
 		System.out.println(report());
-		do {
+	/*	do {
 			System.out.print("HOW MANY ACRES DO YOU WISH TO BUY?  ");
 			temp = input.nextInt();
 			if (temp < 0)
@@ -67,7 +69,7 @@ public class HAMURABI {
 			if (temp > population * 10)
 				System.out.println("BUT YOU HAVE ONLY" + population + "PEOPLE TO TEND THE FIELDS. NOW THEN,");
 		} while (temp > acres || temp / 2 > stores || temp > population * 10);
-		stores -= temp / 2;
+		stores -= temp / 2;*/
 		yeild = (int) (Math.random() * 5 + 1);
 		harvest = temp * yeild;
 		temp = (int) (Math.random() * 5 + 1);
@@ -90,7 +92,7 @@ public class HAMURABI {
 			plague = true;
 		plague = false;
 	}
-	
+
 	private static String report() {
 		String answer = "\nHAMURABI:  I BEG TO REPORT TO YOU,\n" +
 				"IN YEAR " + year + ", " + deaths + " PEOPLE STARVED, " + immigrants + " CAME TO THE CITY.\n";
@@ -146,11 +148,39 @@ public class HAMURABI {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		HAMURABI a = new HAMURABI();
+		Hammurabi a = new Hammurabi();
 		System.out.println("\t\t\t\tHAMURABI\n\t       CREATIVE COMPUTING MORRISTOWN, NEW JERSEY\n\n" +
 				"TRY YOUR HAND AT GOVERNING ANCIENT SUMERIA\nSUCCESSFULLY FOR A TEN-YEAR TERM OF OFFICE.");
 		while (year < 10)
 			a.newYear();
 		a.finished();
+	}
+
+	public int immigrants(int i, int i1, int i2) {
+		return 0;
+	}
+
+	public int plagueDeaths(int i) {
+		return 0;
+	}
+
+	public int starvationDeaths(int i, int i1) {
+		return 0;
+	}
+
+	public boolean uprising(int i, int i1) {
+		return false;
+	}
+
+	public int harvest(int i) {
+		return 0;
+	}
+
+	public int grainEatenByRats(int i) {
+		return 0;
+	}
+
+	public int newCostOfLand() {
+		return 0;
 	}
 }
