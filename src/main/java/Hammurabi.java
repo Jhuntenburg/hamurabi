@@ -14,8 +14,11 @@ public class Hammurabi {
 
     void playGame() {
         int population = 95, storesOfGrain = 2800, immigrants = 0, acres = 1000, landPrice = 19, numberOfDeathsFromStarvation = 0,
-                grainHarvested = 0, hungryRats = 0, acresToPlant =0;
+                grainHarvested = 0, hungryRats = 0, acresToPlant =0, numberOfDeathsFromPlague =0;
         boolean plague = false;
+        final  String FINK = "DUE TO THIS EXTREME MISMANAGEMENT YOU HAVE NOT ONLY\n" +
+                "BEEN IMPEACHED AND THROWN OUT OF OFFICE BUT YOU HAVE\n" +
+                "ALSO BEEN DECLARED PERSONA NON GRATA!!\n";
         for (int i = 0; i < 10; i++) {
 
 
@@ -36,7 +39,7 @@ public class Hammurabi {
             storesOfGrain -= (acresToPlant * 2);
             //this section will calculate the changes made from the last sections user choices
 
-            int numberOfDeathsFromPlague = plagueDeaths(population);
+            numberOfDeathsFromPlague = plagueDeaths(population);
 
             population -= numberOfDeathsFromPlague;
             if( numberOfDeathsFromPlague > 0) plague = true;
@@ -45,6 +48,9 @@ public class Hammurabi {
             numberOfDeathsFromStarvation = starvationDeaths(population, grainToFeed);
 
             population -= numberOfDeathsFromStarvation;
+            if(numberOfDeathsFromStarvation > .45 * population){
+                epicFail(numberOfDeathsFromStarvation, FINK);
+            }
 
 
             boolean isUprising = uprising(population, numberOfDeathsFromStarvation);
@@ -63,8 +69,9 @@ public class Hammurabi {
 
             newCostOfLand();
 
-
         }
+        System.out.println(finished(numberOfDeathsFromStarvation, numberOfDeathsFromPlague,population,acres,FINK ));
+
     }
 
     int askHowManyAcresToBuy(int price, int bushels) {
@@ -219,6 +226,41 @@ public class Hammurabi {
 //    (The player will need this information in order to buy or sell land.)
         int costOfLand = rand.nextInt(7) + 17;
         return costOfLand;
+    }
+
+    String finished(int numberOfDeathsFromStarvation, int numberOfDeathsFromPlague, int population, int acres, String FINK) {
+        String answer = "IN YOUR 10-YEAR TERM OF OFFICE, " + ((numberOfDeathsFromStarvation + numberOfDeathsFromPlague)/population) *100  + " PERCENT OF THE\n" +
+                "POPULATION STARVED PER YEAR ON AVERAGE, I.E., A TOTAL OF\n" +
+                (numberOfDeathsFromStarvation + numberOfDeathsFromPlague) + " PEOPLE DIED!!\n" +
+                "YOU STARTED WITH 10 ACRES PER PERSON AND ENDED WITH\n" +
+                acres / population + " ACRES PER PERSON\n\n";
+        if (((numberOfDeathsFromStarvation + numberOfDeathsFromPlague)/population) *100 > 33 || acres / population < 7)
+            answer += FINK;
+        else if (((numberOfDeathsFromStarvation + numberOfDeathsFromPlague)/population) *100 > 10 || acres / population < 9)
+            answer += "YOUR HEAVY-HANDED PERFORMANCE SMACKS OF NERO AND IVAN IV.\n" +
+                    "THE PEOPLE (REMAINING) FIND YOU AN UNPLEASANT RULER, AND,\n" +
+                    "FRANKLY, HATE YOUR GUTS!";
+        else if (((numberOfDeathsFromStarvation + numberOfDeathsFromPlague)/population) *100 > 3 || acres / population < 10)
+            answer += "YOUR PERFORMANCE COULD HAVE BEEN SOMEWHAT BETTER, BUT\n" +
+                    "REALLY WASN'T TOO BAD AT ALL.\n" +
+                    Math.random() * population * .8 + " PEOPLE WOULD" +
+                    "DEARLY LIKE TO SEE YOU ASSASSINATED BUT WE ALL HAVE OUR" +
+                    "TRIVIAL PROBLEMS";
+        else
+            answer += "A FANTASTIC PERFORMANCE!!!  CHARLEMANGE, DISRAELI, AND\n" +
+                    "JEFFERSON COMBINED COULD NOT HAVE DONE BETTER!";
+        answer += "\n\n\n\n\n\n\n\n\n\nSo long for now.";
+        System.out.println(answer);
+        return answer;
+    }
+
+    String epicFail(int numberOfDeathsFromStarvation,String FINK){
+        String answer = "YOU STARVED " + numberOfDeathsFromStarvation + " PEOPLE IN ONE YEAR!!!\n" +
+                FINK;
+        System.out.println(answer);
+
+        System.exit(0);
+        return answer;
     }
 
 }
